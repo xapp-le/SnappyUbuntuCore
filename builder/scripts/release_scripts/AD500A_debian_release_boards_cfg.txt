@@ -1,0 +1,2 @@
+gb5_wxga
+gb5_xga

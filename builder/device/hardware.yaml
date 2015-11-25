@@ -1,0 +1,5 @@
+kernel: assets/vmlinuz
+initrd: assets/initrd.img
+dtbs: assets/dtbs
+partition-layout: system-AB
+bootloader: u-boot

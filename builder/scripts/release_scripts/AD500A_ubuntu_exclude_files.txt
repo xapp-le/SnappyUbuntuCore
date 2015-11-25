@@ -1,0 +1,11 @@
+.git
+.repo
+.gitignore
+
+owl/out
+owl/private
+owl/scripts/release_scripts
+owl/s500/boards/android
+owl/s500/boards/linux
+owl/s500/boards/debian
+ubuntu/omx/vd*.so

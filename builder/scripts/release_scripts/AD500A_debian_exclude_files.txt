@@ -1,0 +1,13 @@
+#*.o
+#*.cmd
+#*.order
+.git
+.repo
+.gitignore
+
+owl/out
+owl/private
+owl/scripts/release_scripts
+owl/boards/android
+owl/boards/linux
+owl/boards/ubuntu

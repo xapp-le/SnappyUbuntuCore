@@ -1,0 +1,30 @@
+name: roseapple-pi 
+vendor: Woodrow Shen <woodrow.shen@canonical.com>
+icon: meta/roseapple-pi.png
+version: 0.1
+type: oem
+
+branding:
+    name: Roseapple Pi
+store:
+    oem-key: 123456
+
+config:
+    ubuntu-core:
+        autopilot: false
+          
+oem:
+  hardware:
+    platform: actduino
+    architecture: armhf
+    partition-layout: system-AB
+    bootloader: u-boot
+    boot-assets:
+      files:
+        - path: boot-assets/uEnv.txt
+        - path: boot-assets/boot.scr
+      raw-files:
+        - path: boot-assets/bootloader.bin
+          offset: 2097664 #4097*512
+        - path: boot-assets/u-boot.bin
+          offset: 3145728 #6144*512
