@@ -1,7 +1,7 @@
 # SnappyUbuntuCore
 Roseapple Pi [Snappy Ubuntu Core](http://developer.ubuntu.com/snappy/) 
 
-## structure
+## Structure
 builder: build Snappy via makefiles, and that includes OEM snap and device part.  
 prebuild: prebuild iamge for test purpose.
 
@@ -53,6 +53,7 @@ make device
 To rebuild the snappy or other parts, just type `make clean` or `make clean-{prefix}`. The prefix will be u-boot, oem, linux, etc. 
 
 ## Flash to SD card
+Before dd, we suggest the SD card storage should be umounted to safely clean up.
 
 ```bash
 xzcat ${image} | pv | sudo dd of=/dev/${device} bs=32M ; sync
