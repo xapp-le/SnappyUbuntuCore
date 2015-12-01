@@ -19,5 +19,5 @@ setenv loadfdt 'fatload mmc ${mmcdev}:${mmcpart} ${fdtaddr} ${snappy_ab}/dtbs/${
 setenv mmcrootfstype "ext4 rootwait ro"
 setenv optargs "earlyprintk"
 setenv mmcargs 'setenv bootargs ${optargs} root=${mmcroot} rootfstype=${mmcrootfstype}'
-setenv snappy_boot 'if test ${snappy_mode} = "try"; then if test -e mmc ${bootpart} ${snappy_stamp}; then if test "${snappy_ab}" = "a"; then setenv snappy_ab "b"; else setenv snappy_ab "a"; fi; else fatwrite mmc ${mmcdev}:${mmcpart} 0x0 ${snappy_stamp} 0; fi; fi; run loadfiles; setenv mmcroot /dev/disk/by-label/system-${snappy_ab} ${snappy_cmdline}; run mmcargs; bootm ${loadaddr} ${initrd_addr} ${fdtaddr}'
+setenv snappy_boot 'if test "${snappy_mode}" = "try"; then if test -e mmc ${bootpart} ${snappy_stamp}; then if test "${snappy_ab}" = "a"; then setenv snappy_ab "b"; else setenv snappy_ab "a"; fi; else fatwrite mmc ${mmcdev}:${mmcpart} 0x0 ${snappy_stamp} 0; fi; fi; run loadfiles; setenv mmcroot /dev/disk/by-label/system-${snappy_ab} ${snappy_cmdline}; run mmcargs; bootm ${loadaddr} ${initrd_addr} ${fdtaddr}'
 setenv mboot "run snappy_boot"
