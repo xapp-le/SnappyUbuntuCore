@@ -22,7 +22,7 @@ KERNEL_BRANCH := Ubuntu-Snappy-Core
 KERNEL_SRC := $(PWD)/kernel
 KERNEL_MODULES := $(PWD)/kernel-build
 KERNEL_OUT := $(PWD)/kernel-build
-KERNEL_UIMAGE := $(KERNEL_OUT)/arch/arm/boot/uImage
+KERNEL_UIMAGE := $(KERNEL_OUT)/arch/arm/boot/zImage
 KERNEL_DTB := $(KERNEL_OUT)/arch/arm/boot/dts/$(KERNEL_DTS).dtb
 
 UBOOT_REPO := https://github.com/xapp-le/u-boot.git

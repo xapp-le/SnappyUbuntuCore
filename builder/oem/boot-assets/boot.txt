@@ -3,22 +3,10 @@ setenv initrd_high "0xffffffff"
 setenv fdt_high "0xffffffff"
 setenv mmcpart "1"
 setenv bootpart "0:1"
-setenv kernel_file "vmlinuz"
-setenv initrd_file "initrd.img"
-setenv fdtfile "actduino_bubble_gum_sdboot_linux.dtb"
-setenv loadfiles "run loadkernel; run loadinitrd; run loadfdt"
-setenv snappy_cmdline "init=/lib/systemd/systemd ro panic=-1 fixrtc"
-setenv snappy_ab "a"
-setenv snappy_stamp "snappy-stamp.txt"
-setenv snappy_mode "regular"
 setenv loadaddr "0x00008000"
 setenv initrd_addr "0x01ffffc0"
 setenv fdtaddr "0x04000000"
-setenv loadkernel 'fatload mmc ${mmcdev}:${mmcpart} ${loadaddr} ${snappy_ab}/${kernel_file}'
-setenv loadinitrd 'fatload mmc ${mmcdev}:${mmcpart} ${initrd_addr} ${snappy_ab}/${initrd_file}; setenv initrd_size ${filesize}'
-setenv loadfdt 'fatload mmc ${mmcdev}:${mmcpart} ${fdtaddr} ${snappy_ab}/dtbs/${fdtfile}'
 setenv mmcrootfstype "ext4 rootwait ro"
 setenv optargs "earlyprintk"
 setenv mmcargs 'setenv bootargs ${optargs} root=${mmcroot} rootfstype=${mmcrootfstype}'
-setenv snappy_boot 'if test "${snappy_mode}" = "try"; then if test -e mmc ${bootpart} ${snappy_stamp}; then if test "${snappy_ab}" = "a"; then setenv snappy_ab "b"; else setenv snappy_ab "a"; fi; else fatwrite mmc ${mmcdev}:${mmcpart} 0x0 ${snappy_stamp} 0; fi; fi; run loadfiles; setenv mmcroot /dev/disk/by-label/system-${snappy_ab} ${snappy_cmdline}; run mmcargs; bootm ${loadaddr} ${initrd_addr} ${fdtaddr}'
-setenv mboot "run snappy_boot"
+setenv uenvcmd 'load mmc ${bootpart} ${loadaddr} snappy-system.txt; env import -t $loadaddr $filesize; run snappy_boot'

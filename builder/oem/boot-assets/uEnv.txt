@@ -1,0 +1,11 @@
+os_type=linux
+initrd_high=0xffffffff
+fdt_high=0xffffffff
+mmcpart=1
+bootpart=0:1
+loadaddr=0x00008000
+initrd_addr=0x01ffffc0
+fdtaddr=0x04000000
+mmcrootfstype=ext4 rootwait ro
+mmcargs=setenv bootargs root=${mmcroot} rootfstype=${mmcrootfstype}
+uenvcmd=load mmc ${bootpart} ${loadaddr} snappy-system.txt; env import -t $loadaddr $filesize; run snappy_boot

@@ -21,10 +21,9 @@ $(KERNEL_SRC)/.config: $(KERNEL_SRC)
 
 $(KERNEL_UIMAGE): $(KERNEL_SRC)/.config
 		echo "building kernel and make image"
-		rm -f $(KERNEL_SRC)/arch/$(ARCH)/boot/zImage
 		rm -f $(KERNEL_UIMAGE)
 		$(MAKE) ARCH=$(ARCH) CROSS_COMPILE=$(CC) -C $(KERNEL_SRC) V=$(V) O=$(KERNEL_OUT) dtbs 
-		$(MAKE) ARCH=$(ARCH) CROSS_COMPILE=$(CC) -C $(KERNEL_SRC) V=$(V) O=$(KERNEL_OUT) -j$(CPUS) uImage
+		$(MAKE) ARCH=$(ARCH) CROSS_COMPILE=$(CC) -C $(KERNEL_SRC) V=$(V) O=$(KERNEL_OUT) -j$(CPUS) zImage
 
 kernel: $(KERNEL_UIMAGE)
 		#mkimage -A $(ARCH) -O linux -T kernel -C none -a 80008000 -e 80008000 -n "Linux Kernel Image" -d  $(KERNEL_SRC)/arch/$(ARCH)/boot/zImage uImage

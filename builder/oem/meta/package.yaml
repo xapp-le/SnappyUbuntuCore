@@ -4,18 +4,23 @@ icon: meta/roseapple-pi.png
 version: 0.1
 type: oem
 
-branding:
-    name: Roseapple Pi
-store:
-    oem-key: 123456
-
 config:
-    ubuntu-core:
-        autopilot: false
-          
+  ubuntu-core:
+    hostname: roseapple-pi   
+    services:
+        - name: ssh
+          enabled: true
+    autopilot: false
+
 oem:
+  branding:
+    name: Roseapple Pi
+    logo: meta/roseapple-pi.png
+  software:
+    preinstalled:
+        - webdm
   hardware:
-    platform: actduino
+    platform: actduino_bubble_gum_sdboot_linux
     architecture: armhf
     partition-layout: system-AB
     bootloader: u-boot

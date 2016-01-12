@@ -23,10 +23,8 @@ ifeq ($(SNAPPY_CORE_NEW),no)
 endif
 		@echo "build snappy..."
 		sudo ubuntu-device-flash core 15.04 -v \
-			--install webdm \
-			--oem $(OEM_SNAP) \
 			--developer-mode \
-			--enable-ssh \
+			--oem $(OEM_SNAP) \
 			--device-part=$(DEVICE_TAR) \
 			--channel $(SNAPPY_CORE_CH) \
 			-o $(SNAPPY_IMAGE) \
