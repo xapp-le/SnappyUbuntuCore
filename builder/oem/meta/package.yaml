@@ -1,11 +1,8 @@
 name: roseapple-pi 
 vendor: Roseapple Pi <woodrow.shen@canonical.com>
 icon: meta/roseapple-pi.png
-version: 0.12
+version: 0.13
 type: oem
-architectures: [armhf]
-frameworks:
-    - ubuntu-core-15.04-dev1
 
 config:
   ubuntu-core:
