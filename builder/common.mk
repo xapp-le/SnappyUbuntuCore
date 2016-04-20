@@ -7,7 +7,7 @@ SCRIPT_DIR := $(OUTPUT_DIR)/scripts
 TOOLS_DIR := $(OUTPUT_DIR)/tools
 PRELOAD_DIR := $(OUTPUT_DIR)/preloader
 CONFIG_DIR := $(OUTPUT_DIR)/config/$(IC_NAME)/$(BOARD_NAME)
-OEM_BOOT_DIR := $(OUTPUT_DIR)/oem/boot-assets
+OEM_BOOT_DIR := $(OUTPUT_DIR)/gadget/boot-assets
 
 # VNEDOR: toolchain from BSP ; DEB: toolchain from deb
 TOOLCHAIN := DEB

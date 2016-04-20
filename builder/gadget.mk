@@ -1,6 +1,6 @@
 include common.mk
 
-OEM_UBOOT_BIN := oem/boot-assets/u-boot.bin
+OEM_UBOOT_BIN := gadget/boot-assets/u-boot.bin
 OEM_SNAP := $(OUTPUT_DIR)/*.snap
 
 # for preloader packaging
@@ -26,10 +26,10 @@ preload:
 		cd $(TOOLS_DIR)/utils && ./$(BOOTLOADER_PACK) $(PRELOAD_DIR)/bootloader.bin $(PRELOAD_DIR)/bootloader.ini $(OEM_BOOT_DIR)/bootloader.bin
 
 snappy:
-		snappy build oem
+		snappy build gadget
 
-oem: preload u-boot snappy
+gadget: preload u-boot snappy
 
-build: oem
+build: gadget
 
-.PHONY: u-boot snappy oem build
+.PHONY: u-boot snappy gadget build

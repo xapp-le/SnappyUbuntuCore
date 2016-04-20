@@ -1,12 +1,12 @@
-BUILD_STEPS := u-boot linux oem device snappy
+BUILD_STEPS := u-boot linux gadget kernel snappy
 
 all: build
 
 pre-u-boot:
 pre-linux:
-pre-oem: build-u-boot
-pre-device: build-linux 
-pre-snappy: build-oem build-device 
+pre-gadget: build-u-boot
+pre-kernel: build-linux 
+pre-snappy: build-gadget build-kernel 
 
 define BUILD_STEPS_TEMPLATE
 build-$(1): pre-$(1)
@@ -30,10 +30,10 @@ u-boot: build-u-boot
 
 linux: build-linux
 
-oem: build-oem
+gadget: build-gadget
 
-device: build-device
+kernel: build-kernel
 
 snappy: build-snappy
 
-.PHONY: all build clean distclean u-boot linux oem device snappy
+.PHONY: all build clean distclean u-boot linux gadget kernel snappy
