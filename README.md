@@ -1,11 +1,11 @@
 # SnappyUbuntuCore
-Port Roseapple Pi to Snappy 16 [Snappy Ubuntu Core](http://developer.ubuntu.com/snappy/) 
+Develop Roseapple Pi to Snappy 16 [Snappy Ubuntu Core](http://developer.ubuntu.com/snappy/) 
 
 ## Changelog
 - draft porting.  
 
 ## Structure
-builder: build Snappy via makefiles, and that includes OEM snap and device part.  
+builder: build Snappy via makefiles, and that includes Gadget snap and Kernel snap.  
 prebuild: prebuild iamge for test purpose.
 
 ## Requirements
