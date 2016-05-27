@@ -15,7 +15,7 @@ To build all parts, a couple of dependencies are required. On Ubuntu you can ins
 sudo apt-get install build-essential u-boot-tools lzop debootstrap gcc-arm-linux-gnueabihf device-tree-compiler
 ```
 
-Make sure your build environment is based on Ubuntu 16.04 or later. Then, you need to install snappy tools from PPA, for creating image.
+Make sure your build environment is based on Ubuntu 16.04 or later. Then, you need to install snappy tools, for creating image.
 
 ```bash
 sudo apt-get update
@@ -37,7 +37,15 @@ To build it all, just run `make snappy`. This will produce a Snappy image, a gad
 If you want to build the speical version with including the snap you'd like to install from ubuntu store, you can modify the snappy.mk to reach it. For example:  
 
 ```bash
-sudo ubuntu-device-flash core rolling \
+sudo ubuntu-device-flash core 16 \
+	--channel $CHANNEL \
+	--size 4 \
+	--enable-ssh \
+	--gadget roseapple-pi_x.y_all.snap \
+	--kernel device-roseapple-pi_x.y.snap \
+	--os ubuntu-core \
+	--install docker \
+	-o snappy-16.img
 ```
 
 ### Build U-boot
