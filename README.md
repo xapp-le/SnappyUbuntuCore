@@ -15,12 +15,14 @@ To build all parts, a couple of dependencies are required. On Ubuntu you can ins
 sudo apt-get install build-essential u-boot-tools lzop debootstrap gcc-arm-linux-gnueabihf device-tree-compiler
 ```
 
-Make sure your build environment is based on Ubuntu 16.04 or later. Then, you need to install snappy tools, for creating image.
+Make sure your build environment is based on `Ubuntu 16.04` or later. Then, you need to install snappy tools, for creating image.
 
 ```bash
 sudo apt-get update
-sudo apt-get install ubuntu-device-flash ubuntu-snappy
+sudo apt-get install ubuntu-device-flash ubuntu-snappy snapcraft
 ```
+
+For ubuntu-device-flash, we still use the binary provided by mvo's [u-d-f](https://people.canonical.com/~mvo/all-snaps/ubuntu-device-flash) to build Ubuntu Core 16 image as new ubuntu-image tool isn't available. I also put it as backup in folder builder/tools
 
 Generate ssh key-pair if you did not have one
 
