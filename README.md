@@ -33,7 +33,7 @@ ssh-keygen -t rsa
 ## Quick Build
 A `Makefile` is provided to build Snappy, Gadget snap, U-Boot, Kernel snap from source. The sources will be cloned into local folders if not there already.
 
-To build it all, just run `make snappy`. This will produce a Snappy image, a gadget snap `roseapple-pi_x.y_all.snap` and a kernel snap `device-roseapple-pi_x.y.snap` for device part, which can be used to build your own Snappy image.
+To build it all, just run `make snappy`. This will produce a Snappy image, a gadget snap `roseapple-pi_x.y_all.snap` and a kernel snap `roseapple-pi-kernel_x.y.z.snap` for device part, which can be used to build your own Snappy image.
 
 ### Custom Image
 If you want to build the speical version with including the snap you'd like to install from ubuntu store, you can modify the snappy.mk to reach it. For example:  
@@ -44,7 +44,7 @@ sudo ubuntu-device-flash core 16 \
 	--size 4 \
 	--enable-ssh \
 	--gadget roseapple-pi_x.y_all.snap \
-	--kernel device-roseapple-pi_x.y.snap \
+	--kernel roseapple-pi-kernel_x.y.z.snap \
 	--os ubuntu-core \
 	--install docker \
 	-o snappy-16.img

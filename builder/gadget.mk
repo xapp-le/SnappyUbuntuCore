@@ -13,20 +13,20 @@ endif
 all: build
 
 clean:
-		rm -f $(OEM_UBOOT_BIN)
-		rm -f $(OEM_BOOT_DIR)/bootloader.bin
-		rm -f $(OEM_SNAP)
+	rm -f $(OEM_UBOOT_BIN)
+	rm -f $(OEM_BOOT_DIR)/bootloader.bin
+	rm -f $(OEM_SNAP)
 distclean: clean
 
 u-boot:
-		@if [ ! -f $(UBOOT_BIN) ] ; then echo "Build u-boot first."; exit 1; fi
-			cp -f $(UBOOT_BIN) $(OEM_UBOOT_BIN)
+	@if [ ! -f $(UBOOT_BIN) ] ; then echo "Build u-boot first."; exit 1; fi
+		cp -f $(UBOOT_BIN) $(OEM_UBOOT_BIN)
 
 preload:
-		cd $(TOOLS_DIR)/utils && ./$(BOOTLOADER_PACK) $(PRELOAD_DIR)/bootloader.bin $(PRELOAD_DIR)/bootloader.ini $(OEM_BOOT_DIR)/bootloader.bin
+	cd $(TOOLS_DIR)/utils && ./$(BOOTLOADER_PACK) $(PRELOAD_DIR)/bootloader.bin $(PRELOAD_DIR)/bootloader.ini $(OEM_BOOT_DIR)/bootloader.bin
 
 snappy:
-		snappy build gadget
+	snapcraft snap gadget
 
 gadget: preload u-boot snappy
 

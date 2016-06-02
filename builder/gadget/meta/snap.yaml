@@ -1,8 +1,11 @@
 name: roseapple-pi 
-vendor: Roseapple Pi <woodrow.shen@canonical.com>
-icon: meta/roseapple-pi.png
-version: 0.13
-type: oem
+version: 1.0
+summary: armhf gadget package for Roseapple-Pi
+description: |
+    This package contains a simple OEM snappy package for system configuration
+type: gadget
+architectures:
+    - armhf
 
 config:
   ubuntu-core:
@@ -12,22 +15,20 @@ config:
           enabled: true
     autopilot: false
 
-oem:
+gadget:
   branding:
     name: Roseapple Pi
-    logo: meta/roseapple-pi.png
   software:
     preinstalled:
         - webdm
   hardware:
     platform: actduino_bubble_gum_sdboot_linux
     architecture: armhf
-    partition-layout: system-AB
+    partition-layout: minimal
     bootloader: u-boot
     boot-assets:
       files:
         - path: boot-assets/uEnv.txt
-        - path: boot-assets/boot.scr
       raw-files:
         - path: boot-assets/bootloader.bin
           offset: 2097664 #4097*512

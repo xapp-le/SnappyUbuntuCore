@@ -1,12 +1,12 @@
-BUILD_STEPS := u-boot linux gadget kernel snappy
+BUILD_STEPS := u-boot linux gadget kernelsnap snappy
 
 all: build
 
 pre-u-boot:
 pre-linux:
 pre-gadget: build-u-boot
-pre-kernel: build-linux 
-pre-snappy: build-gadget build-kernel 
+pre-kernelsnap: build-linux 
+pre-snappy: build-gadget build-kernelsnap 
 
 define BUILD_STEPS_TEMPLATE
 build-$(1): pre-$(1)
@@ -32,8 +32,8 @@ linux: build-linux
 
 gadget: build-gadget
 
-kernel: build-kernel
+kernelsnap: build-kernelsnap
 
 snappy: build-snappy
 
-.PHONY: all build clean distclean u-boot linux gadget kernel snappy
+.PHONY: all build clean distclean u-boot linux gadget kernelsnap snappy

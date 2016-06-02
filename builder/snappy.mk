@@ -1,5 +1,4 @@
 include common.mk
-include device.mk
 
 SNAPPY_VERSION := `date +%Y%m%d`-0
 SNAPPY_IMAGE := roseapple-pi-${SNAPPY_VERSION}.img
@@ -7,39 +6,43 @@ SNAPPY_IMAGE := roseapple-pi-${SNAPPY_VERSION}.img
 SNAPPY_CORE_NEW := yes
 SNAPPY_CORE_VER ?=
 SNAPPY_CORE_CH := stable
-#OEM_SNAP := roseapple-pi_0.1_all.snap
-OEM_SNAP := roseapple-pi.woodrow
+GADGET_VERSION := `gadget/meta/snap.yaml | grep version: | awk '{print $2}'`
+GADGET_SNAP := roseapple-pi_$(GADGET_VERSION)_armhf.snap
+KERNEL_SNAP_VERSION := `kernelsnap/meta/snap.yaml | grep version: | awk '{print $2}'` 
+KERNEL_SNAP := roseapple-pi-kernel_$(KERNEL_SNAP_VERSION)_amdhf.snap
 REVISION ?=
 SNAPPY_WORKAROUND := no
 
 all: build
 
 clean:
-		rm -f $(OUTPUT_DIR)/*.img.xz
+	rm -f $(OUTPUT_DIR)/*.img.xz
 distclean: clean
 
 build-snappy:
 ifeq ($(SNAPPY_CORE_NEW),no)
 		$(eval REVISION = --revision $(SNAPPY_CORE_VER))
 endif
-		@echo "build snappy..."
-		sudo ubuntu-device-flash core 15.04 -v \
-			--oem $(OEM_SNAP) \
-			--device-part=$(DEVICE_TAR) \
-			--channel $(SNAPPY_CORE_CH) \
-			-o $(SNAPPY_IMAGE) \
-			$(REVISION)
+	@echo "build snappy..."
+	sudo ubuntu-device-flash core 16 -v \
+		--channel $(SNAPPY_CORE_CH) \
+		--size 4 \
+		--gadget $(GADGET_SNAP) \
+		--kernel $(KERNEL_SNAP) \
+		--os ubuntu-core \
+		-o $(SNAPPY_IMAGE) \
+		$(REVISION)
 
 fix-bootflag:
-		dd conv=notrunc if=boot_fix.bin of=$(SNAPPY_IMAGE) seek=440 oflag=seek_bytes
+	dd conv=notrunc if=boot_fix.bin of=$(SNAPPY_IMAGE) seek=440 oflag=seek_bytes
 
 workaround:
 ifeq ($(SNAPPY_WORKAROUND),yes)
-		./snappy-workaround.sh
+	@echo "workaround something..."
 endif
 
 pack:
-		xz -0 $(SNAPPY_IMAGE)
+	xz -0 $(SNAPPY_IMAGE)
 
 build: build-snappy fix-bootflag workaround pack 
 
