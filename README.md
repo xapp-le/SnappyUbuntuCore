@@ -12,8 +12,11 @@ prebuild: prebuild iamge for test purpose.
 To build all parts, a couple of dependencies are required. On Ubuntu you can install all build dependencies with the following command.
 
 ```bash
-sudo apt-get install build-essential u-boot-tools lzop debootstrap gcc-arm-linux-gnueabihf device-tree-compiler
+sudo apt-get install build-essential u-boot-tools lzop debootstrap gcc-4.8-arm-linux-gnueabihf device-tree-compiler
 ```
+
+### Limitation
+xapp-le kernel can't be cross compiled by gcc 5+ arm-linux-gnueabihf, so you have to make soft link to gcc 4.8 related toolchain.  
 
 Make sure your build environment is based on `Ubuntu 16.04` or later. Then, you need to install snappy tools, for creating image.
 
