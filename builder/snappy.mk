@@ -5,10 +5,10 @@ SNAPPY_IMAGE := roseapple-pi-${SNAPPY_VERSION}.img
 # yes for latest version; no for the specific revision of edge/stable channel
 SNAPPY_CORE_NEW := yes
 SNAPPY_CORE_VER ?=
-SNAPPY_CORE_CH := stable
+SNAPPY_CORE_CH := edge
 GADGET_VERSION := `cat gadget/meta/snap.yaml | grep version: | awk '{print $$2}'`
 GADGET_SNAP := roseapple-pi_$(GADGET_VERSION)_armhf.snap
-KERNEL_SNAP_VERSION := `cat $(KERNEL_SRC)/snap/meta/snap.yaml | grep version: | awk '{print $$2}'` 
+KERNEL_SNAP_VERSION := `cat $(KERNEL_SRC)/snap/meta/snap.yaml | grep version: | awk '{print $$2}'`
 KERNEL_SNAP := roseapple-pi-kernel_$(KERNEL_SNAP_VERSION)_armhf.snap
 REVISION ?=
 SNAPPY_WORKAROUND := no
@@ -24,12 +24,14 @@ ifeq ($(SNAPPY_CORE_NEW),no)
 		$(eval REVISION = --revision $(SNAPPY_CORE_VER))
 endif
 	@echo "build snappy..."
-	sudo ubuntu-device-flash core 16 -v \
+	sudo $(UDF) core 16 -v \
 		--channel $(SNAPPY_CORE_CH) \
 		--size 4 \
+		--enable-ssh \
+		--developer-mode \
 		--gadget $(GADGET_SNAP) \
 		--kernel $(KERNEL_SNAP) \
-		--os ubuntu-core \
+		--os xenial-preinstalled-core-armhf.os.snap \
 		-o $(SNAPPY_IMAGE) \
 		$(REVISION)
 

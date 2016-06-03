@@ -6,7 +6,7 @@ pre-u-boot:
 pre-linux:
 pre-gadget: build-u-boot
 pre-kernelsnap:
-pre-snappy: build-gadget build-kernelsnap 
+pre-snappy: build-gadget build-kernelsnap
 
 define BUILD_STEPS_TEMPLATE
 build-$(1): pre-$(1)

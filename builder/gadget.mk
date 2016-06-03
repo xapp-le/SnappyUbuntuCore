@@ -15,6 +15,7 @@ all: build
 clean:
 	rm -f $(OEM_UBOOT_BIN)
 	rm -f $(OEM_BOOT_DIR)/bootloader.bin
+	rm -f $(OEM_BOOT_DIR)/uboot.env
 	rm -f $(OEM_SNAP)
 distclean: clean
 
@@ -24,6 +25,7 @@ u-boot:
 
 preload:
 	cd $(TOOLS_DIR)/utils && ./$(BOOTLOADER_PACK) $(PRELOAD_DIR)/bootloader.bin $(PRELOAD_DIR)/bootloader.ini $(OEM_BOOT_DIR)/bootloader.bin
+	mkenvimage -s 0x8000 -o $(OEM_BOOT_DIR)/uboot.env -r $(OEM_BOOT_DIR)/uEnv.txt
 
 snappy:
 	snapcraft snap gadget
