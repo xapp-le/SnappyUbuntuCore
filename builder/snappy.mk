@@ -6,10 +6,10 @@ SNAPPY_IMAGE := roseapple-pi-${SNAPPY_VERSION}.img
 SNAPPY_CORE_NEW := yes
 SNAPPY_CORE_VER ?=
 SNAPPY_CORE_CH := stable
-GADGET_VERSION := `gadget/meta/snap.yaml | grep version: | awk '{print $2}'`
+GADGET_VERSION := `cat gadget/meta/snap.yaml | grep version: | awk '{print $$2}'`
 GADGET_SNAP := roseapple-pi_$(GADGET_VERSION)_armhf.snap
-KERNEL_SNAP_VERSION := `kernelsnap/meta/snap.yaml | grep version: | awk '{print $2}'` 
-KERNEL_SNAP := roseapple-pi-kernel_$(KERNEL_SNAP_VERSION)_amdhf.snap
+KERNEL_SNAP_VERSION := `cat $(KERNEL_SRC)/snap/meta/snap.yaml | grep version: | awk '{print $$2}'` 
+KERNEL_SNAP := roseapple-pi-kernel_$(KERNEL_SNAP_VERSION)_armhf.snap
 REVISION ?=
 SNAPPY_WORKAROUND := no
 
