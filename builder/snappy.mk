@@ -31,7 +31,7 @@ endif
 		--developer-mode \
 		--gadget $(GADGET_SNAP) \
 		--kernel $(KERNEL_SNAP) \
-		--os xenial-preinstalled-core-armhf.os.snap \
+		--os ubuntu-core \
 		-o $(SNAPPY_IMAGE) \
 		$(REVISION)
 
