@@ -62,11 +62,11 @@ make gadget
 ### Build Kernel snap
 
 ```bash
-make kernel
+make kernelsnap
 ```
 
 ### Rebuild a snappy
-To rebuild the snappy or other parts, just type `make clean` or `make clean-{prefix}`. The prefix will be u-boot, gadget, kernel, etc. 
+To rebuild the snappy or other parts, just type `make clean` or `make clean-{prefix}`. The prefix will be u-boot, gadget, kernelsnap, etc. 
 
 ## Flash to SD card
 Before dd, we suggest the SD card storage should be umounted to safely clean up.
