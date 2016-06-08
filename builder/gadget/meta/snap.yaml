@@ -25,7 +25,6 @@ gadget:
     boot-assets:
       files:
         - path: boot-assets/uboot.env
-        - path: boot-assets/uEnv.txt
       raw-files:
         - path: boot-assets/bootloader.bin
           offset: 2097664 #4097*512

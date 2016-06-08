@@ -10,7 +10,7 @@ fdt_addr=0x04000000
 
 kernel_file=vmlinuz
 initrd_file=initrd.img
-ftdfile=actduino_bubble_gum_sdboot_linux.dts
+fdtfile=actduino_bubble_gum_sdboot_linux.dtb
 
 # functions to load kernel, initrd and fdt from various env values
 loadfiles=run loadkernel; run loadinitrd; run loadfdt
