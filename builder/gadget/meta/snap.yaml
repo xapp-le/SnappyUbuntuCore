@@ -1,10 +1,9 @@
 name: roseapple-pi
-version: 1.0
+version: 1.1
 summary: Roseapple Pi support package
 description: |
  Support files for booting Roseapple Pi
 type: gadget
-architectures: [armhf]
 
 config:
   ubuntu-core:

@@ -74,3 +74,13 @@ Before dd, we suggest the SD card storage should be umounted to safely clean up.
 ```bash
 xzcat ${image} | pv | sudo dd of=/dev/${device} bs=32M ; sync
 ```
+## TroubleShooting
+Before snapcraft begins to compile the snap, it may pop up an error as below:
+```
+No valid credentials found. Have you run "snapcraft login"?
+```
+
+First, make sure you have Ubuntu One SSO and ability to get 2nd factor from Authenticator, then execute the following command:
+```bash
+snapcraft login
+```
