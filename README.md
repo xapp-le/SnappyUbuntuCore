@@ -16,6 +16,22 @@ sudo apt-get install -y build-essential u-boot-tools lzop debootstrap gcc-4.8-ar
 sudo apt-get install -y ubuntu-device-flash ubuntu-snappy snapcraft
 ```
 
+Note: there is no 4.x cross toolchain available in Ubuntu 16.04 LTS. Use the linaro toolchain instead:
+```
+wget https://releases.linaro.org/components/toolchain/binaries/4.9-2016.02/arm-linux-gnueabihf/gcc-linaro-4.9-2016.02-x86_64_arm-linux-gnueabihf.tar.xz
+unxz gcc-linaro-4.9-2016.02-x86_64_arm-linux-gnueabihf.tar.xz
+export PATH=$PWD/gcc-linaro-4.9-2016.02-x86_64_arm-linux-gnueabihf/bin/
+```
+
+You can test if the right compiler is setup by checking that you get a 4.9 compiler version like:
+```
+arm-linux-gnueabihf-gcc --version
+arm-linux-gnueabihf-gcc (Linaro GCC 4.9-2016.02) 4.9.4 20151028 (prerelease)
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+
 ### Limitation
 xapp-le kernel can't be cross compiled by gcc 5+ arm-linux-gnueabihf, so you have to make soft link to gcc 4.8 related toolchain.  
 
