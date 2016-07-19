@@ -1,6 +1,6 @@
 include common.mk
 
-KERNEL_SNAP_VERSION := `cat $(KERNEL_SRC)/snap/meta/snap.yaml | grep version: | awk '{print $$2}'`
+KERNEL_SNAP_VERSION := `cat $(KERNEL_SRC)/prime/meta/snap.yaml | grep version: | awk '{print $$2}'`
 KERNEL_SNAP := roseapple-pi-kernel_$(KERNEL_SNAP_VERSION)_armhf.snap
 
 all: build
