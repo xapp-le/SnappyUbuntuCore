@@ -8,18 +8,18 @@ prebuild: prebuild iamge for test purpose.
 ## Requirements
 Make sure your build environment is based on `Ubuntu 16.04` or later. Then, you need to install snappy tools, for creating image.
 
-To build all parts, a couple of dependencies are required. On Ubuntu you can install all build dependencies with the following command.
+To build all parts, a couple of dependencies are required. On Ubuntu you can install all build dependencies with the following commands.
 
 ```bash
 sudo apt-get update
 sudo apt-get install -y build-essential u-boot-tools lzop debootstrap gcc-4.8-arm-linux-gnueabihf device-tree-compiler
-sudo apt-get install -y ubuntu-device-flash ubuntu-snappy snapcraft
+sudo apt-get install -y ubuntu-snappy snapcraft
+sudo apt-get install -y snap
+sudo snap install --devmode --edge ubuntu-image
 ```
 
 ### Limitation
 xapp-le kernel can't be cross compiled by gcc 5+ arm-linux-gnueabihf, so you have to make soft link to gcc 4.8 related toolchain.  
-
-For ubuntu-device-flash, we still use the binary provided by mvo's [u-d-f](https://people.canonical.com/~mvo/all-snaps/ubuntu-device-flash) to build Ubuntu Core 16 image temporarily. I also put it as backup in folder builder/tools
 
 Generate ssh key-pair if you did not have one
 
@@ -43,15 +43,18 @@ To build it all, just run `make snappy`. This will produce a Snappy image, a gad
 If you want to build the speical version with including the snap you'd like to install from ubuntu store, you can modify the snappy.mk to reach it. For example:  
 
 ```bash
-sudo ubuntu-device-flash core 16 \
+sudo /snap/bin/ubuntu-image \
 	--channel $CHANNEL \
-	--size 4 \
-	--enable-ssh \
-	--gadget roseapple-pi_x.y_all.snap \
-	--kernel roseapple-pi-kernel_x.y.z.snap \
-	--os ubuntu-core \
-	--install docker \
-	-o snappy-16.img
+	--image-size 4G \
+	--extra-snaps snapweb \
+	--extra-snaps bluez \
+	--extra-snaps modem-manager \
+	--extra-snaps network-manager \
+	--extra-snaps uefi-fw-tools \
+	--extra-snaps roseapple-pi_x.y_all.snap \
+	--extra-snaps roseapple-pi-kernel_x.y.z.snap \
+	-o uc16-roseapple-pi.img \
+	roseapple-assertion.model
 ```
 
 ### Build U-boot
