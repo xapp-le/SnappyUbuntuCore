@@ -1,6 +1,6 @@
 include common.mk
 
-OEM_UBOOT_BIN := gadget/boot-assets/u-boot.bin
+OEM_UBOOT_BIN := gadget/u-boot.bin
 OEM_SNAP := $(OUTPUT_DIR)/*.snap
 
 # for preloader packaging
@@ -25,7 +25,7 @@ u-boot:
 
 preload:
 	cd $(TOOLS_DIR)/utils && ./$(BOOTLOADER_PACK) $(PRELOAD_DIR)/bootloader.bin $(PRELOAD_DIR)/bootloader.ini $(OEM_BOOT_DIR)/bootloader.bin
-	mkenvimage -r -s 131072  -o $(OEM_BOOT_DIR)/uboot.env $(OEM_BOOT_DIR)/uEnv.txt
+	mkenvimage -r -s 131072  -o $(OEM_BOOT_DIR)/uboot.env $(OEM_BOOT_DIR)/uboot.env.in
 
 snappy:
 	snapcraft snap gadget

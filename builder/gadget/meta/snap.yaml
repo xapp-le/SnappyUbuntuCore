@@ -1,31 +1,8 @@
 name: roseapple-pi
-version: 1.1
+version: 16.04-1.0
 summary: Roseapple Pi support package
 description: |
  Support files for booting Roseapple Pi
 type: gadget
-
-config:
-  ubuntu-core:
-    hostname: roseapple-pi   
-    autopilot: false
-
-gadget:
-  branding:
-    name: Roseapple Pi
-  software:
-    preinstalled:
-      - webdm
-  hardware:
-    platform: actduino_bubble_gum_sdboot_linux
-    architecture: armhf
-    partition-layout: minimal
-    bootloader: u-boot
-    boot-assets:
-      files:
-        - path: boot-assets/uboot.env
-      raw-files:
-        - path: boot-assets/bootloader.bin
-          offset: 2097664 #4097*512
-        - path: boot-assets/u-boot.bin
-          offset: 3145728 #6144*512
+architectures:
+    - armhf

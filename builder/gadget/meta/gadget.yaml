@@ -1,0 +1,26 @@
+device-tree: actduino_bubble_gum_sdboot_linux
+device-tree-origin: kernel
+volumes:
+  roseapple-pi:
+    schema: mbr
+    bootloader: u-boot
+    structure:
+      - name: Bootstrap
+        type: mbr
+        offset: 2097664 #4097*512
+        content:
+          - image: bootloader.bin
+      - name: Uboot 
+        type: mbr
+        offset: 3145728 #6144*512
+        content:
+          - image: u-boot.bin
+      - name: Snappy Boot
+        type: 0C
+        filesystem: vfat
+        filesystem-label: system-boot
+        offset: 8388608
+        size: 64M
+        content:
+          - source: uboot.env
+            target: uboot.env
