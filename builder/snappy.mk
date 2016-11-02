@@ -38,7 +38,7 @@ endif
 		roseapple.model
 
 fix-bootflag:
-	dd conv=notrunc if=boot_fix.bin of=$(SNAPPY_IMAGE) seek=440 oflag=seek_bytes
+	sudo dd conv=notrunc if=boot_fix.bin of=$(SNAPPY_IMAGE) seek=440 oflag=seek_bytes
 
 workaround:
 ifeq ($(SNAPPY_WORKAROUND),yes)
@@ -46,7 +46,7 @@ ifeq ($(SNAPPY_WORKAROUND),yes)
 endif
 
 pack:
-	xz -0 $(SNAPPY_IMAGE)
+	sudo xz -0 $(SNAPPY_IMAGE)
 
 build: build-snappy fix-bootflag workaround pack 
 
