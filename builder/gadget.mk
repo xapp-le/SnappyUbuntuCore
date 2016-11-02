@@ -1,7 +1,7 @@
 include common.mk
 
 OEM_UBOOT_BIN := gadget/u-boot.bin
-OEM_SNAP := $(OUTPUT_DIR)/*.snap
+OEM_SNAP := $(OUTPUT_DIR)/roseapple-pi_16.04-*_all.snap
 
 # for preloader packaging
 ifneq "$(findstring ARM, $(shell grep -m 1 'model name.*: ARM' /proc/cpuinfo))" ""
@@ -14,6 +14,7 @@ all: build
 
 clean:
 	rm -f $(OEM_UBOOT_BIN)
+	rm -f $(OEM_BOOT_DIR)/uboot.conf
 	rm -f $(OEM_BOOT_DIR)/bootloader.bin
 	rm -f $(OEM_BOOT_DIR)/uboot.env
 	rm -f $(OEM_SNAP)
@@ -26,6 +27,7 @@ u-boot:
 preload:
 	cd $(TOOLS_DIR)/utils && ./$(BOOTLOADER_PACK) $(PRELOAD_DIR)/bootloader.bin $(PRELOAD_DIR)/bootloader.ini $(OEM_BOOT_DIR)/bootloader.bin
 	mkenvimage -r -s 131072  -o $(OEM_BOOT_DIR)/uboot.env $(OEM_BOOT_DIR)/uboot.env.in
+	cd $(OEM_BOOT_DIR) && ln -s uboot.env uboot.conf
 
 snappy:
 	snapcraft snap gadget

@@ -26,17 +26,16 @@ ifeq ($(SNAPPY_CORE_NEW),no)
 endif
 	@echo "build snappy..."
 	sudo $(SNAP_UBUNTU_IMAGE) \
-		--channel $(CHANNEL) \
+		--channel $(SNAPPY_CORE_CH) \
 		--image-size 4G \
 		--extra-snaps snapweb \
 		--extra-snaps bluez \
 		--extra-snaps modem-manager \
 		--extra-snaps network-manager \
-		--extra-snaps uefi-fw-tools \
 		--extra-snaps $(GADGET_SNAP) \
 		--extra-snaps $(KERNEL_SNAP) \
 		-o $(SNAPPY_IMAGE) \
-		roseapple-assertion.model
+		roseapple.model
 
 fix-bootflag:
 	dd conv=notrunc if=boot_fix.bin of=$(SNAPPY_IMAGE) seek=440 oflag=seek_bytes

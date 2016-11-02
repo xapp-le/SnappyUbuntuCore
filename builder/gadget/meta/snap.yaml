@@ -4,5 +4,3 @@ summary: Roseapple Pi support package
 description: |
  Support files for booting Roseapple Pi
 type: gadget
-architectures:
-    - armhf
