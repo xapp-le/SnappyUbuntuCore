@@ -1,0 +1,21 @@
+type: model
+authority-id: HydsnL7f5YHlWroLIeNQrn9060uDSC53
+series: 16
+brand-id: HydsnL7f5YHlWroLIeNQrn9060uDSC53
+model: roseapple-pi
+architecture: armhf
+gadget: roseapple-pi
+kernel: roseapple-pi-kernel
+timestamp: 2016-11-01T11:43:10+00:00
+sign-key-sha3-384: 7xhIc11pojDkVTZaY_T-njpODao_FhRyK4zX6vCvxms0bJao-TDRQ7ycqWMkJCpt
+
+AcLBXAQAAQoABgUCWBiA/AAKCRBXPDWAVZyG8F2jD/9W9rO37BKtpdAJx5ClVzXSmlhdbNG+itKn
+oW6ctHF80/EnNe75YJSvv4/qw6/Q8PX9+IwqAMUIWi+IGi5N8aUTWaytXbiJZ3FCGnZ29AByuwA1
+MmvoX2vRy+rVD9WEHrJRtajlndJmVCF43ihQYNAcPa9H8vFcuRB/dWuZTgL+H1MJjlQmSFhApyC7
+Ft9MfBqT9Rj3QWFa/CM//RTEEHTmJuwIK3VFBZThzY6UFfV8ncNabBmEzAAzW0v5YRyCXx7br/3q
+3tTHBTv1MNvmJO/QnQyr6PieFEfr9SSf08pLtgCSYZQZlSSopZy2h7sAQs5urX/6kqkAHvC45L/x
+JrnL0VhC+h3ikYZsLyFPK+BIEwYyeCVFRcoWWTo9m7y4y0sB6C3+nD62TNH2H/3E/OSUna1t+G1q
+UHLPVwjN9M7glMpfJymt2T8F9X6PwneofMYYETigjluY+MkIdk2cVruKJz6VpafjUSIuBE4qZc0s
+fAaSWJ1P51g/etTUNmu6EyqvkLtHjEVkhoBo1YMthg541g9XQtQCI1q/d9GsABDdbwaj2ltVdNnk
+Ydihr50PoMNjAtKeRIOfJtizKr6w9e3yaHaIMDrc1CJo1q2gEtY53wckBwz6NmB1XTB1raMifdDp
+XJ7H9VJImoByyldVlNrGJKhtNXO1fzrGd+NZi4YLkA==
