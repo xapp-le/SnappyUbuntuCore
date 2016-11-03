@@ -1,5 +1,4 @@
-device-tree: actduino_bubble_gum_sdboot_linux
-device-tree-origin: kernel
+device-tree: actduino_bubble_gum_sdboot_linux.dtb
 volumes:
   roseapple-pi:
     schema: mbr
@@ -19,5 +18,5 @@ volumes:
         offset: 8388608
         size: 128M
         content:
-          - source: uboot.env
-            target: uboot.env
+          - source: boot-assets/
+            target: /
