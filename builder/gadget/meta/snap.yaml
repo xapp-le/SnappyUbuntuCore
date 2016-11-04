@@ -1,6 +1,8 @@
 name: roseapple-pi
-version: 16.04-1.0
+version: 16.04-1.1
 summary: Roseapple Pi support package
 description: |
  Support files for booting Roseapple Pi
 type: gadget
+architectures:
+    - armhf

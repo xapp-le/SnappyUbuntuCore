@@ -1,7 +1,7 @@
 include common.mk
 
 OEM_UBOOT_BIN := gadget/u-boot.bin
-OEM_SNAP := $(OUTPUT_DIR)/roseapple-pi_16.04-*_all.snap
+OEM_SNAP := $(OUTPUT_DIR)/roseapple-pi_16.04-*.snap
 
 # for preloader packaging
 ifneq "$(findstring ARM, $(shell grep -m 1 'model name.*: ARM' /proc/cpuinfo))" ""

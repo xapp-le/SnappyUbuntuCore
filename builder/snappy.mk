@@ -5,9 +5,9 @@ SNAPPY_IMAGE := uc16-roseapple-pi-${SNAPPY_VERSION}.img
 # yes for latest version; no for the specific revision of edge/stable channel
 SNAPPY_CORE_NEW := yes
 SNAPPY_CORE_VER ?=
-SNAPPY_CORE_CH := edge
+SNAPPY_CORE_CH := stable
 GADGET_VERSION := `cat gadget/meta/snap.yaml | grep version: | awk '{print $$2}'`
-GADGET_SNAP := roseapple-pi_$(GADGET_VERSION)_all.snap
+GADGET_SNAP := roseapple-pi_$(GADGET_VERSION)_armhf.snap
 KERNEL_SNAP_VERSION := `cat $(KERNEL_SRC)/prime/meta/snap.yaml | grep version: | awk '{print $$2}'`
 KERNEL_SNAP := roseapple-pi-kernel_$(KERNEL_SNAP_VERSION)_armhf.snap
 REVISION ?=
