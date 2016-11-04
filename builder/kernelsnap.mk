@@ -14,7 +14,7 @@ distclean: clean
 	
 build:
 	if [ ! -d $(KERNEL_SRC) ] ; then git clone $(KERNEL_REPO) -b $(KERNEL_BRANCH) kernel; fi
-	cd $(KERNEL_SRC); snapcraft clean; snapcraft --target-arch armhf snap
+	cd $(KERNEL_SRC); snapcraft clean; snapcraft login; snapcraft --target-arch armhf snap; snapcraft logout
 	cp $(KERNEL_SRC)/$(KERNEL_SNAP) $(OUTPUT_DIR)
 	
 .PHONY: build

@@ -30,6 +30,7 @@ UBOOT_BRANCH := Ubuntu-Snappy-Core
 UBOOT_SRC := $(PWD)/u-boot
 UBOOT_OUT := $(PWD)/u-boot-build
 UBOOT_BIN := $(UBOOT_OUT)/u-boot-dtb.img
+UBOOT_CONF := $(OEM_BOOT_DIR)/uboot.conf
 
 UDF := $(TOOLS_DIR)/ubuntu-device-flash
 
