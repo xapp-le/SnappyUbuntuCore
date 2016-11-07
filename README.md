@@ -50,11 +50,10 @@ sudo /snap/bin/ubuntu-image \
 	--extra-snaps bluez \
 	--extra-snaps modem-manager \
 	--extra-snaps network-manager \
-	--extra-snaps uefi-fw-tools \
 	--extra-snaps roseapple-pi_x.y_all.snap \
 	--extra-snaps roseapple-pi-kernel_x.y.z.snap \
 	-o uc16-roseapple-pi.img \
-	roseapple-assertion.model
+	roseapple.model
 ```
 
 ### Build U-boot
