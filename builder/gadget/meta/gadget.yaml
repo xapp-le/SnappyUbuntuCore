@@ -4,15 +4,16 @@ volumes:
     schema: mbr
     bootloader: u-boot
     structure:
-      - name: Bootstrap
-        type: mbr 
-        size: 8M
+      - name: bootloader
+        size: 4M
         content:
           - image: bootloader.bin
             offset: 2097664 #4097*512
           - image: u-boot.bin
             offset: 3145728 #6144*512
-      - type: 0C
+        type: bare
+      - name: system-boot
+        type: 0C
         filesystem: vfat
         filesystem-label: system-boot
         offset: 8388608
