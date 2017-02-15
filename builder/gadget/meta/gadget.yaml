@@ -5,12 +5,13 @@ volumes:
     bootloader: u-boot
     structure:
       - name: bootloader
-        size: 4M
+        size: 6M
+        offset: 2M
         content:
           - image: bootloader.bin
-            offset: 2097664 #4097*512
+            offset: 512 #4097*512=(4097-4096)*512
           - image: u-boot.bin
-            offset: 3145728 #6144*512
+            offset: 1048576 #6144*512=(6144-4096)*512
         type: bare
       - name: system-boot
         type: 0C
