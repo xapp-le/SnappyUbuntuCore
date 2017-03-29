@@ -3,7 +3,6 @@ Develop Roseapple Pi to Snappy 16 [Snappy Ubuntu Core](http://developer.ubuntu.c
 
 ## Structure
 builder: build Snappy via makefiles, and that includes Gadget snap and Kernel snap.  
-prebuild: prebuild iamge for test purpose.
 
 ## Requirements
 Make sure your build environment is based on `Ubuntu 16.04` or later. Then, you need to install snappy tools, for creating image.
