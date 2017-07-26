@@ -12,9 +12,9 @@ To build all parts, a couple of dependencies are required. On Ubuntu you can ins
 ```bash
 sudo apt-get update
 sudo apt-get install -y build-essential u-boot-tools lzop debootstrap gcc-4.8-arm-linux-gnueabihf device-tree-compiler
-sudo apt-get install -y ubuntu-snappy snapcraft
+sudo apt-get install -y ubuntu-snappy snapcraft pxz
 sudo apt-get install -y snap
-sudo snap install --devmode --edge ubuntu-image
+sudo snap install --beta --classic ubuntu-image
 ```
 
 ### Limitation
